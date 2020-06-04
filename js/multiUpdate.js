@@ -32,6 +32,7 @@
     };
 
     window.onload = function () {
-        drowChart();
+        setTimeout(() => {
+          drowChart(updateChart);
+        }, 400);
     };
-
