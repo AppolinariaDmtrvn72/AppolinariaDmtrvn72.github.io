@@ -1,4 +1,4 @@
-function drawMonoInterfPicture(wavelength, d, b, N, L) {
+function drawMonoInterfPicture(wavelength, d, b, N, L, x_center, x_range) {
 
   function intensityFunction(x) {
     let e = 1e-6;
@@ -8,9 +8,11 @@ function drawMonoInterfPicture(wavelength, d, b, N, L) {
   }
 
   let labels = [];
-    for (let x = -3/2; x <= 3/2; x+=3/497) {
-        labels.push(x);
-    }
+  let from = (x_center-x_range) / 100;
+  let to   = (x_center+x_range) / 100;
+  for (let x = from; x <= to; x+=N/wavelength) {
+      labels.push(x);
+  }
 
   let ctx = document.getElementById("interference_picture").getContext("2d"),
     width = document.getElementById('interference_picture').offsetWidth,
@@ -25,7 +27,7 @@ function drawMonoInterfPicture(wavelength, d, b, N, L) {
 
   let yStep = width / labels.length;
 
-  let Max = intensities[labels.length / 2 ];
+  let Max = Math.max.apply(Math, intensities); //[labels.length / 2 ];
 
   labels.forEach(function(x, index) {
     const yCoord = index * yStep;

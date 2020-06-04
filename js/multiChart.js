@@ -1,4 +1,4 @@
-let Multi;
+let myChart;
 const MN1 = document.getElementById('N');
 const L1 = document.getElementById("L");
 

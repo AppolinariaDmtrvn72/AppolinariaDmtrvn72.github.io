@@ -54,18 +54,8 @@ function drowChart(update_f) {
                          beginAtZero: true,
                          maxTicksLimit: 9,
                          callback: function (value, index, values) {
-                             if( value === -150 || value === -116.6 || value === -83.2 || value === -49.8 || value === -16.4){
-                                 return value;
-                             } else if (value === 17){
-                                 return 16.4;
-                             }else if (value === 50.4){
-                                 return 49.8;
-                             } else if (value === 83.8){
-                                 return 83.2;
-                             } else if (value === 117.2){
-                                 return 116.6;
-                             }
-                              return '';
+                             
+                              return value;
                          },
                          // maxTicksLimit: 8,
 
