@@ -8,13 +8,6 @@ function drawMonoInterfPicture(wavelength, d, b, N, L) {
   }
 
   let labels = [];
-
-    //
-    // for (let i = 1.2  ; i >= -1.2  ; i -= 0.0005) {
-    //     labels.push(i);
-    // }
-
-
     for (let x = -3/2; x <= 3/2; x+=3/497) {
         labels.push(x);
     }
@@ -33,7 +26,6 @@ function drawMonoInterfPicture(wavelength, d, b, N, L) {
   let yStep = width / labels.length;
 
   let Max = intensities[labels.length / 2 ];
-  // alert(Max);
 
   labels.forEach(function(x, index) {
     const yCoord = index * yStep;
@@ -43,20 +35,10 @@ function drawMonoInterfPicture(wavelength, d, b, N, L) {
     const rgbColor = convertRGBAtoRGB(rgbaColor);
 
     ctx.strokeStyle = 'rgba(' + rgbaColor.r + ', ' + rgbaColor.g + ', ' + rgbaColor.b + ', ' + rgbaColor.a + ')';
-    // ctx.strokeStyle = 'rgb(' + rgbColor.r + ', ' + rgbColor.g + ', ' + rgbColor.b  + ')';
     ctx.beginPath();
     ctx.moveTo(yCoord, 0);
     ctx.lineTo(yCoord, width);
     ctx.closePath();
     ctx.stroke();
   });
-  // prob.push(inmin, min);
-  // alert(prob);
-  // prob.pop();
-  // prob.pop();
-  // prob.push(inmax, max);
-  // alert(prob);
-  // alert(labels.length);
-  // alert(labels.length / 2);
-
 }

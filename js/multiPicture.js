@@ -51,7 +51,6 @@ function drawMultiInterfPicture(wavelengthLowerBorder, wavelengthUpperBorder, d,
       }
     }
   });
-  // alert(max);
 
   labels.forEach(function(x, index) {
     const yCoord = index * yStep;
@@ -62,9 +61,7 @@ function drawMultiInterfPicture(wavelengthLowerBorder, wavelengthUpperBorder, d,
     for (let i = wavelengthLowerBorder; i <= wavelengthUpperBorder; i += wavelengthDelta) {
 
       let alp = alpha(x, i) ;
-      // if(alp > 1){
-      //   alp = 1;
-      // }
+
       const currentColor = Math.nmToRGB(i);
       const currentAlpha = alp / max;
 
@@ -75,16 +72,8 @@ function drawMultiInterfPicture(wavelengthLowerBorder, wavelengthUpperBorder, d,
     }
 
     let color = rgbMix(colors);
-    // const  color = blendColors(colors);
-    // const color = blendColors2(colors);
-
-    // if (Number((x).toFixed(1)) === 0.0) {
-    //   console.log(color);
-    //   // color.b = 255;
-    // }
 
     ctx.strokeStyle = 'rgb(' + color.r + ', ' + color.g + ', ' + color.b + ')';
-    // ctx.strokeStyle = 'rgba(' + color.r + ', ' + color.g + ', ' + color.b + ', ' + color.a + ')';
     ctx.beginPath();
     ctx.moveTo(yCoord, 0);
     ctx.lineTo(yCoord, width);
